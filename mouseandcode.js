@@ -72,43 +72,111 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         console.log('Waiting 10 seconds.');
         console.log('SELECTING ITEM 5 ON THE LIST.');
         await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
-        await newPage.evaluate(() => {
-            const thirdButton = document.querySelectorAll('.os-list-item-name')[5];
-            thirdButton.click();
-            if (thirdButton) {
-                thirdButton.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
-            } else {
-                console.error('Third button not found.');
+
+
+
+
+
+
+        //////NEW CODE
+        (async () => {
+            // Ensure the third button exists and perform the click and scroll operation
+            await newPage.evaluate(() => {
+                const thirdButton = document.querySelectorAll('.os-list-item-name')[5];
+                if (thirdButton) {
+                    thirdButton.click();
+                    thirdButton.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+                } else {
+                    console.error('Third button not found.');
+                }
+            });
+            console.log("Third button clicked and scrolled into view.");
+
+            console.log("AAAAAAAAAA");
+
+            // Wait for user input or specific action (waitForEnter function not defined here)
+            await waitForEnter();
+
+            console.log("BBBBBBBBBB");
+
+            // RIGHT CLICK
+            console.log('Preparing to right-click');
+
+            const desiredIndex1 = 6;
+            await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 5 seconds
+            console.log('Waiting 5 seconds.');
+
+            await clickButtonByIndex(newPage, desiredIndex1);
+            console.log('Clicked button by index:', desiredIndex1);
+
+            // Perform right-click on the specified element
+            const selector1 = 'div[data-id="XgmGAQ7RqnVg1wa8"]';
+            const title1 = '(2)Extrude1(4.00) did not regenerate properly: Select face or sketch region to extrude.';
+
+            // Debugging: Log all elements matching the selector
+            const elementsDebug = await newPage.evaluate((selector) => {
+                return Array.from(document.querySelectorAll(selector)).map(el => ({
+                    title: el.getAttribute('data-bs-original-title'),
+                    id: el.getAttribute('data-id')
+                }));
+            }, selector1);
+            console.log('Elements matching selector:', elementsDebug);
+
+            try {
+                const editOptions1 = await performRightClickOptionByTitle(newPage, selector1, title1);
+                console.log('Retrieved edit options:', editOptions1);
+            } catch (error) {
+                console.error('Error performing right-click option:', error);
             }
-        });
-        console.log("CCCCCCCCCCC")
+        })();
+
+        async function performRightClickOptionByTitle(newPage, selector, title) {
+            console.log('Right-click process started.');
+
+            // Click on the element with the specified title
+            const elements = await newPage.$$(`${selector}[data-bs-original-title="${title}"]`);
+            if (elements.length > 0) {
+                await elements[0].scrollIntoView();
+                await elements[0].click({ button: 'right' });
+                console.log(`Right-clicked on element with title "${title}".`);
+            } else {
+                throw new Error(`No element found with title "${title}" using selector "${selector}".`);
+            }
+
+            // Wait for context menu item to appear
+            const menuItemSelector = '.context-menu-item-span';
+            await newPage.waitForSelector(menuItemSelector, { visible: true });
+            console.log('Context menu item appeared.');
+
+            // Retrieve context menu items
+            const editOptions = await newPage.evaluate(() => {
+                const menuItems = document.querySelectorAll('.context-menu-item-span');
+                return Array.from(menuItems).map(item => item.textContent.trim());
+            });
+            console.log('Retrieved context menu options:', editOptions);
+
+            console.log('Right-click process ended.');
+            return editOptions;
+        }
+
+        module.exports = { performRightClickOptionByTitle };
 
 
 
-        console.log("AAAAAAAAAA")
-        ////////////////////
-        await waitForEnter();
-        ////////////////////
-        console.log("BBBBBBBBBB")
+        //////
 
 
 
 
 
-        // RIGHT CLICK
-        //ALL THE FOLLOWING CODE NEEDS TO GO TOGETHER
-        console.log('clickButtonByIndex');
-        await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
-        const desiredIndex1 = 7; //IMPORTANT PART THAT MAKES THE CODE RUN!
-        await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 10 seconds
-        console.log('Waiting 5 seconds.');
-        await clickButtonByIndex(newPage, desiredIndex1);
-        //Right click option
-        const selector1 = 'div[data-id="AJC+8X/uU1MWWXEK"]'; // Replace with the appropriate selector
-        // ORIGINAL CODE WORKING const title1 = '(2)Extrude1(4.00)'; // Replace with the desired title
-        const title1 = '(3) Extrude Sketch(1.03)'; // Replace with the desired title
 
-        const editOptions1 = await performRightClickOptionByTitle(newPage, selector1, title1);
+
+
+
+
+
+
+        ////OLD CODE
         console.log('editOptions1');
         console.log(editOptions1);
         //Paste into sketch function
