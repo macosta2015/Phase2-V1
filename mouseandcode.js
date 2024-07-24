@@ -39,22 +39,22 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         //Right click option
         const selector = 'div[data-id="Dg4JdGx6jlZTm4XD"]'; // Replace with the appropriate selector
         //ORIGINAL RUNNING CODE const title = 'First Sketch'; // Replace with the desired title
-        const title = ''; // Replace with the desired title
+        const title = '(1) Initial Sketch'; // Replace with the desired title
 
 
 
 
         //EXTRUDE THE FUNCTION
-        await searchAndClickExtrude(newPage);
-        console.log('After waiting for the Extrude function')
-        await waitForEnter();
+        // await searchAndClickExtrude(newPage);
+        // console.log('After waiting for the Extrude function')
+        // await waitForEnter();
 
 
 
 
-        const editOptions3 = await performRightClickOptionByTitle(newPage, selector, title);
-        console.log(editOptions3);
-        copySketchFunction(editOptions3, newPage);
+        // const editOptions3 = await performRightClickOptionByTitle(newPage, selector, title);
+        // console.log(editOptions3);
+        // copySketchFunction(editOptions3, newPage);
 
 
 
@@ -85,11 +85,19 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
 
 
 
+        console.log("AAAAAAAAAA")
+        ////////////////////
+        await waitForEnter();
+        ////////////////////
+        console.log("BBBBBBBBBB")
+
+
+
+
 
         // RIGHT CLICK
         //ALL THE FOLLOWING CODE NEEDS TO GO TOGETHER
         console.log('clickButtonByIndex');
-        console.log('pasteIntoSketchFunction');
         await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
         const desiredIndex1 = 7; //IMPORTANT PART THAT MAKES THE CODE RUN!
         await new Promise(resolve => setTimeout(resolve, 5000)); // Wait for 10 seconds
@@ -97,8 +105,11 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         await clickButtonByIndex(newPage, desiredIndex1);
         //Right click option
         const selector1 = 'div[data-id="AJC+8X/uU1MWWXEK"]'; // Replace with the appropriate selector
-        const title1 = 'Second Sketch'; // Replace with the desired title
+        // ORIGINAL CODE WORKING const title1 = '(2)Extrude1(4.00)'; // Replace with the desired title
+        const title1 = '(3) Extrude Sketch(1.03)'; // Replace with the desired title
+
         const editOptions1 = await performRightClickOptionByTitle(newPage, selector1, title1);
+        console.log('editOptions1');
         console.log(editOptions1);
         //Paste into sketch function
         //TODO: THE CORE RUNS BECAUSE WE MADE IT RUN FOR 40 SECONDS. 
@@ -106,7 +117,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         console.log('Waited for 10 seconds.');
         console.log('BEFORE THE CODE RUNS.');
         //NEED TO ADD THE EDIT FUNCTION HERE, LIKE pasteIntoSketchFunction OR copySketchFunction
-        pasteIntoSketchFunction(editOptions1, newPage);
+        // pasteIntoSketchFunction(editOptions1, newPage);
         await new Promise(resolve => setTimeout(resolve, 40000)); // Wait for 10 seconds
         console.log('Waited for 40 seconds.'); console.log('AFTER THE CODE RUNS.');
         console.log("DDDDDDDDDDD")
