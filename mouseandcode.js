@@ -25,12 +25,15 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
          // await performTest(newPage);
  
          // Adding extrude function to the code
-         const desiredIndex = 5;
+        //ORIGINAL GOOD  const desiredIndex = 5;
+        const desiredIndex = 5;
          await clickButtonByIndex(newPage, desiredIndex);
  
          // Right-click option
-         const selector = 'div[data-id="Dg4JdGx6jlZTm4XD"]'; // Replace with the appropriate selector
-         const title = '(1) Initial Sketch'; // Replace with the desired title
+        // const selector = 'div[data-id="Dg4JdGx6jlZTm4XD"]'; // Replace with the appropriate selector
+        // const title = '(1) Initial Sketch'; // Replace with the desired title
+        const selector = 'div[data-id="AJC+8X/uU1MWWXEK"]'; // Replace with the appropriate selector
+        const title = '(3) Extrude Sketch(1.03)'; // Replace with the desired title
  
          // Wait for user input
          console.log("AAAAAAAAAA");
@@ -38,8 +41,8 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
          console.log("BBBBBBBBBB");
  
          // Perform right-click and handle options
-         console.log('Waiting 10 seconds.');
-         await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
+        //  console.log('Waiting 10 seconds.');
+        //  await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
  
          // Perform right-click on the specified element
          console.log('Right-clicking on the specified element.');
@@ -50,11 +53,9 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
          console.log('copySketchFunction')
          copySketchFunction(editOptions3, newPage);
  
-         console.log("Waiting for user input...");
          console.log("CCCCCCCCCC");
          await waitForEnter();
          console.log("DDDDDDDDDD");
-         console.log("Continuing...");
  
          // Select sketch to click or unclick
          console.log('Waiting 10 seconds.');
@@ -70,12 +71,12 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
          });
          console.log("Third button clicked and scrolled into view.");
  
-         console.log("Waiting for user input...");
+
          console.log("DDDDDDDDDDD");
          await waitForEnter();
          console.log("EEEEEEEEEEE");
-         console.log("Continuing...");
- 
+
+         
          // Select sketch to click or unclick again
          console.log('Waiting 10 seconds.');
          await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
@@ -123,16 +124,16 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
 
         console.log("JJJJJJJJJJJJJJ")
         ////////////////////
-        console.log('WAITING FOR USER TO CLICK ENTER')
         await waitForEnter();
         console.log('USER CLICKED ENTER')
+        console.log("KKKKKKKKKKKK")
         ////////////////////
         await searchAndClickTransform(newPage);
 
 
 
         console.log('After waiting for the transform function')
-        console.log("KKKKKKKKKKKK")
+        console.log("LLLLLLLLLLLL")
 
 
         //         // //RENAME
@@ -167,7 +168,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         ////////////////////
         await waitForEnter();
         ////////////////////
-        console.log("LLLLLLLLLLLL")
+        console.log("MMMMMMMMMM")
 
 
 
@@ -189,7 +190,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         // const desiredOption = 'Copy sketch'; //TYPE WHICH EDIT OPTION YOU WANT TO CHOSE
         console.log('copySketchFunction')
         copySketchFunction(editOptions5, newPage);
-        console.log("MMMMMMMMMMMM")
+        console.log("NNNNNNNNNNNN")
 
 
 
@@ -198,7 +199,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         ////////////////////
         await waitForEnter();
         ////////////////////
-        console.log("NNNNNNNNNN")
+        console.log("OOOOOOOOOOOOOO")
 
 
 
@@ -225,7 +226,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
 
 
 
-        console.log("OOOOOOOOOO")
+        console.log("PPPPPPPPP")
         // RIGHT CLICK
         //ALL THE FOLLOWING CODE NEEDS TO GO TOGETHER
         console.log('pasteIntoSketchFunction');
@@ -251,12 +252,12 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         pasteIntoSketchFunction(editOptions8, newPage);
         await new Promise(resolve => setTimeout(resolve, 40000)); // Wait for 10 seconds
         console.log('Waited for 40 seconds.'); console.log('AFTER THE CODE RUNS.');
-        console.log("PPPPPPPPPPP")
+        console.log("QQQQQQQQQQ")
 
 
 
 
-        console.log("QQQQQQQQQQQ")
+        console.log("RRRRRRRRRRRRRRRRR")
         //SELECT SKETCH TO CLICK OR UNCLICK, THIS CODE IS REALLY IMPORTANT
         console.log('Waiting 10 seconds.');
         console.log('SELECTING ITEM 5 ON THE LIST.');
@@ -276,7 +277,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         ////////////////////
         await waitForEnter();
         ////////////////////
-        console.log("RRRRRRRRRRRRR")
+        console.log("SSSSSSSSSSSSSSSSS")
 
 
 
@@ -296,7 +297,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
                 console.error('Third button not found.');
             }
         });
-        console.log("SSSSSSSSSSSSS")
+        console.log("TTTTTTTTTTTTTT")
 
 
 
@@ -327,7 +328,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         editIntoSketchFunction(editOptions6, newPage);
         await new Promise(resolve => setTimeout(resolve, 40000)); // Wait for 10 seconds
         console.log('Waited for 40 seconds.'); console.log('AFTER THE CODE RUNS.');
-        console.log("TTTTTTTTTTTTTTT")
+        console.log("QQQQQQQQQQQQQQ")
 
 
 
@@ -350,7 +351,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
 
         ////////////////////
         await waitForEnter();
-        console.log("UUUUUUUUUUUUUUUU")
+        console.log("LLLLLLLLLLLLLLLLL")
         ////////////////////
 
 
