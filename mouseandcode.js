@@ -38,7 +38,9 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         await clickButtonByIndex(newPage, desiredIndex);
         //Right click option
         const selector = 'div[data-id="Dg4JdGx6jlZTm4XD"]'; // Replace with the appropriate selector
-        const title = 'First Sketch'; // Replace with the desired title
+        //ORIGINAL RUNNING CODE const title = 'First Sketch'; // Replace with the desired title
+        const title = ''; // Replace with the desired title
+
 
 
 
