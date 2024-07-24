@@ -26,7 +26,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
  
          // Adding extrude function to the code
         //ORIGINAL GOOD  const desiredIndex = 5;
-        const desiredIndex = 5;
+        const desiredIndex = 7;
          await clickButtonByIndex(newPage, desiredIndex);
  
          // Right-click option
@@ -49,14 +49,17 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
          const editOptions3 = await performRightClickOptionByTitle(newPage, selector, title);
          console.log(editOptions3);
  
-         // Use the retrieved options for further actions (e.g., copySketchFunction)
-         console.log('copySketchFunction')
-         copySketchFunction(editOptions3, newPage);
  
          console.log("CCCCCCCCCC");
          await waitForEnter();
          console.log("DDDDDDDDDD");
+
+
+        // Use the retrieved options for further actions (e.g., copySketchFunction)
+        console.log('copySketchFunction')
+        copySketchFunction(editOptions3, newPage);
  
+
          // Select sketch to click or unclick
          console.log('Waiting 10 seconds.');
          await new Promise(resolve => setTimeout(resolve, 10000)); // Wait for 10 seconds
