@@ -33,7 +33,7 @@ const { performRightClickOptionByTitle } = require('./components/performRightCli
         // const selector = 'div[data-id="Dg4JdGx6jlZTm4XD"]'; // Replace with the appropriate selector
         // const title = '(1) Initial Sketch'; // Replace with the desired title
         const selector = 'div[data-id="AJC+8X/uU1MWWXEK"]'; // Replace with the appropriate selector
-        const title = '(3) Extrude Sketch(1.03)'; // Replace with the desired title
+        const title = '(3) Extrude Sketch(1.03) did not regenerate properly: Select a sketch plane.'; // Replace with the desired title
  
          // Wait for user input
          console.log("AAAAAAAAAA");
